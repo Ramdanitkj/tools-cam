@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#camera, #status {
+	display: none;
+}
+
+#bg-form {
+      background-image: url('https://i.pinimg.com/736x/67/cd/4a/67cd4a39bd44a496a30b3ea6a1d1ad29.jpg'); /* Ganti dengan path gambar Anda */
+      background-size: cover;
+      background-position: center;
+    }
