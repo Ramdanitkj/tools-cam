@@ -1,0 +1,5 @@
+# Atur semua file teks untuk menggunakan LF
+* text=auto
+
+# Kecuali untuk file tertentu (misalnya, file biner)
+*.bin binary
