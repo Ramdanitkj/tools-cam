@@ -1,3 +1,8 @@
+## WARNING
+Jadikan project saya ini untuk have fun, Lebih baik lagi jika dikembangkan menjadi lebih sempurna,
+* Keep Learning
+* keep Smart
+
 ## CARA MENJALANKANNYA
 *  WINDOWS
 1. Install git
@@ -15,6 +20,10 @@
 5. npm start
 6. Selamat menikmati.
 
+## JANGAN DI SALAH GUNAKAN, SEGALA BENTUK KEJAHATAN TANGGUNG JAWAB SENDIRI SAYA HANYA MEMBUAT INI UNTUK TUJUAN EDUKASI BUKAN UNTUK KEJAHATAN👿
+
 ## THANK TO
-# ALLAH
-# ORTU
+* ALLAH
+* ORTU
+
+# SAYA RAMDANI AND THANK YOU
