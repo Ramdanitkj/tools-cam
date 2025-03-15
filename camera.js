@@ -8,14 +8,14 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 // Middleware untuk menyajikan file statis dari folder 'public'
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'kamera')));
 
 // Endpoint untuk menyimpan gambar
 app.post('/save-photo', (req, res) => {
     const { image } = req.body; // Data gambar dalam format base64
     const base64Data = image.replace(/^data:image\/png;base64,/, ''); // Hapus header base64
     const fileName = `photo_${Date.now()}.png`; // Nama file unik
-    const filePath = path.join(__dirname, 'public', 'photos', fileName); // Path penyimpanan
+    const filePath = path.join(__dirname, 'kamera', 'photos', fileName); // Path penyimpanan
 
     // Simpan gambar ke folder 'public/photos'
     fs.writeFile(filePath, base64Data, 'base64', (err) => {
@@ -28,8 +28,9 @@ app.post('/save-photo', (req, res) => {
 });
 
 // Jalankan server
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log("      ");
+    console.log(`Running di port: ${PORT}`);
 });
